@@ -7,7 +7,7 @@ import jakarta.persistence.OneToMany;
 import org.example.server.dao.GameDAO;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.generator.EventType;
-import org.example.server.dao.PlayerDAO
+import org.example.server.dao.PlayerDAO;
 
 import java.time.LocalDate;
 
