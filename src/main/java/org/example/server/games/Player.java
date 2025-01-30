@@ -4,8 +4,10 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import org.example.server.dao.GameDAO;
 import org.hibernate.annotations.CurrentTimestamp;
 import org.hibernate.generator.EventType;
+import org.example.server.dao.PlayerDAO
 
 import java.time.LocalDate;
 
@@ -21,12 +23,14 @@ public class Player {
     private Game[] games;
 
     public boolean updateMaxScore(int points){
+        boolean isUptaded = false;
         if(points>maxScore){
-            PlayerDAO.update(this);
+             isUptaded= PlayerDAO.update(this);
         }
+        return isUptaded;
     }
 
     public void addGame(Game game){
-
+        GameDAO.create(game);
     }
 }

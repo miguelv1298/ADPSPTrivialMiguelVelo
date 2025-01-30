@@ -31,7 +31,7 @@ public class Question {
                 return answer.getAnswer();
             }
         }
-    }
+
     public boolean isCorrect(int index){
         for(Answer answer : answers){
             if()
