@@ -32,5 +32,6 @@ public class Player {
 
     public void addGame(Game game){
         GameDAO.create(game);
+
     }
 }
