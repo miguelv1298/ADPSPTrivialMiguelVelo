@@ -22,6 +22,11 @@ public class Player {
     @OneToMany (mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private Game[] games;
 
+    public Player(String name, String pass) {
+        this.name = name;
+        this.pass = pass;
+    }
+
     public boolean updateMaxScore(int points){
         boolean isUptaded = false;
         if(points>maxScore){

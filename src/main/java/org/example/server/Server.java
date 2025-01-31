@@ -1,9 +1,20 @@
 package org.example.server;
 
+import org.example.server.dao.PlayerDAO;
+import org.example.server.dao.QuestionDAO;
+import org.example.server.games.Player;
+import org.example.server.questions.Question;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Server {
 
+
+    public static void startServer(){
+        new Thread(new ServerClient()).start();
+        System.out.println("Servidor iniciado en el puerto 48120...");
+    }
     public static void printMenu() {
         System.out.println("Menú de opciones:");
         System.out.println("1. Arrancar el servidor");
@@ -15,8 +26,21 @@ public class Server {
         System.out.println("7. Salir");
         System.out.print("Selecciona una opción: ");
     }
-
-    public void createPlayer
+    public static void showTopQuestions(){
+        List<Question> harderQuestions = QuestionDAO.getTop5HarderQuestions();
+        List<Question>easierQuestions = QuestionDAO.getTop5EasierQuestions();
+    }
+    public static void createPlayer(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Creación de jugador");
+        System.out.println("Introduce el nombre");
+        String name = sc.nextLine();
+        System.out.println("Introduce la contraseña");
+        String pass = sc.nextLine();
+        Player player = new Player(name,pass);
+        PlayerDAO.create(player);
+    }
+    
     public static void main(String[] args) {
         printMenu();
         Scanner sc = new Scanner(System.in);
@@ -29,17 +53,17 @@ public class Server {
                 startServer();
                 break;
             case "2":
-                showHistory();
+                //showHistory();
                 break;
             case "3":
-                showTop10();
+                //showTop10();
                 break;
             case "4":
-                resetResults();
+                //resetResults();
                 break;
             case "5":
-                showTopDifficultQuestions();
-                showTopEasyQuestions;
+                showTopQuestions();
+
                 break;
             case "6":
                 createPlayer();

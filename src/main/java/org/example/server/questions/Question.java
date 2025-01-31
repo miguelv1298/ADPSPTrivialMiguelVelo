@@ -26,15 +26,18 @@ public class Question {
     }
 
     public String getCorrectOpction() {
+        String correctAnswer="";
         for(Answer answer : answers){
             if(answer.isCorrect()){
-                return answer.getAnswer();
+                correctAnswer=  answer.getAnswer();
             }
         }
+        return correctAnswer;
+    }
 
     public boolean isCorrect(int index){
-        for(Answer answer : answers){
-            if()
+            return answers[index].getAnswer().equals(getCorrectOpction());
         }
-    }
 }
+
+
