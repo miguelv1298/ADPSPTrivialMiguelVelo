@@ -25,7 +25,7 @@ public class Player {
     public boolean updateMaxScore(int points){
         boolean isUptaded = false;
         if(points>maxScore){
-             isUptaded= PlayerDAO.update(this)
+             isUptaded= PlayerDAO.update(this);
         }
         return isUptaded;
     }
